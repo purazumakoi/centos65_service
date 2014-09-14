@@ -61,6 +61,29 @@ if ( post_password_required() ) {
 
 	<?php endif; // have_comments() ?>
 
-	<?php comment_form(); ?>
+	<?php
+	// 従来のコメントfunctionをコメントアウト
+	//comment_form();
+
+	// 代わりに自分で書きます 20140914
+	$comments_args = array(
+	'fields' => array(
+	//'author' => '<p class="comment-form-author">' . '<label for="author">' . __( 'Name' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
+	//'<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></p>',
+	'email'  => '<p class="comment-form-email"><label for="email">' . __( 'Email' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
+	'<input id="email" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' />
+	<span class="form-allowed-tags">お返事が必要な場合はメールアドレスを入力してください。</span>
+	</p>',
+	'url'    => '',
+	),
+	'title_reply'          => '連絡フォーム',
+	'comment_notes_before' => '',
+	'comment_notes_after'  => '<p class="form-allowed-tags">内容に問題なければ、下記の「コメントを送信する」ボタンを押してください。<br>※確認画面はありません。</p>',
+	'label_submit'         => '送信する',
+	);
+
+	comment_form($comments_args);
+
+	?>
 
 </div><!-- #comments -->
