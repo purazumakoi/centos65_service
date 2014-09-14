@@ -78,7 +78,7 @@ if ( post_password_required() ) {
 	),
 	'title_reply'          => '連絡フォーム',
 	'comment_notes_before' => '',
-	'comment_notes_after'  => '<p class="form-allowed-tags">内容に問題なければ、下記の「コメントを送信する」ボタンを押してください。<br>※確認画面はありません。</p>',
+	'comment_notes_after'  => '<p class="form-allowed-tags">内容に問題なければ、下記の「送信する」ボタンを押してください。<br>※確認画面はありません。</p>',
 	'label_submit'         => '送信する',
 	);
 
